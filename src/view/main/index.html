@@ -1,127 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery</title>
-    <link rel="stylesheet" href="../../../public/output.css" />
-    <script src="../../../node_modules/flowbite/dist/flowbite.min.js"></script>
-  </head>
-  <body class="h-[500vh] bg-slate-50">
-    <!-- HEADER SECTION (literally) -->
-    <header class="w-full fixed top-0 md:z-50">
-      <nav class="bg-white border-gray-200 shadow-lg shadow-slate-700/10">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo"/>
-            <span class="self-center text-2xl font-semibold whitespace-nowrap">
-              Flowbite
-            </span>
-          </a>
-          <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-dropdown" aria-expanded="false" >
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14" > 
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
-            </svg>
-          </button>
-          <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
-              <li>
-                <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0" aria-current="page">
-                  Home
-                </a>
-              </li>
-              <li>
-                <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto" >
-                  Dropdown
-                  <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-                  </svg>
-                </button>
-                <!-- Dropdown menu -->
-                <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 " >
-                  <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
-                    <li> 
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100">
-                        Dashboard
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100">
-                        Settings
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100" >Earnings</a>
-                    </li>
-                  </ul>
-                  <div class="py-1">
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" >
-                      Sign out
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery</title>
+  <!-- Tailwindcss essentials -->
+  <link rel="stylesheet" href="../../../public/output.css" />
+  <script src="../../../node_modules/flowbite/dist/flowbite.min.js"></script>
+  <!-- my styles -->
+  <link rel="stylesheet" href="../../myStyle.css">
+  <!-- JQUERY -->
+  <script src="../../jquery.js"></script>
+</head>
+
+<body class="h-[500vh] bg-slate-50">
+  <!-- HEADER SECTION (literally) -->
+  <header class="w-full fixed top-0 md:z-40">
+    <nav class="bg-white border-gray-200 shadow-lg shadow-slate-700/10">
+      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+          <span class="self-center text-2xl font-semibold whitespace-nowrap">
+            Flowbite
+          </span>
+        </a>
+        <button data-collapse-toggle="navbar-dropdown" type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          aria-controls="navbar-dropdown" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15" />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+          <ul
+            class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+            <li>
+              <a href="#"
+                class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
+                aria-current="page">
+                Home
+              </a>
+            </li>
+            <li>
+              <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+                class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto">
+                Dropdown
+                <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 10 6">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m1 1 4 4 4-4" />
+                </svg>
+              </button>
+              <!-- Dropdown menu -->
+              <div id="dropdownNavbar"
+                class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+                <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                  <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">
+                      Dashboard
                     </a>
-                  </div>
+                  </li>
+                  <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">
+                      Settings
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Earnings</a>
+                  </li>
+                </ul>
+                <div class="py-1">
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Sign out
+                  </a>
                 </div>
-              </li>
-              <li>
-                <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0" >
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
+              </div>
+            </li>
+            <li>
+              <a href="#"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+                Services
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+                Pricing
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+                Contact
+              </a>
+            </li>
+          </ul>
         </div>
-      </nav>
-    </header>
-    <!-- BODY SECTION -->
-    <section class="w-full pt-4 px-1.5 md:px-4 mt-[10rem] md:mt-[9rem] md:relative md:z-10">
-      <div class="w-full h-full flex gap-1">
-        <!-- current image container -->
-        <div class="fixed  w-full top-0 h-full left-0 md:w-[60vw] lg:w-[55vw] px-1.5 pt-20 md:px-0 md:pt-0 bg-slate-900/20 backdrop-blur-sm ">
-          <div class="bg-red-600/10 w-full h-full flex flex-col md:flex-row bg-slate-50 pb-1.5 gap-0.5">
-            <!-- the current image -->
-            <div class="w-full h-[85vh] bg-slate-300">
-              <div class="w-full h-full flex items-center justify-center bg-contain bg-no-repeat bg-center" style="background-image: url('../../../public/img/post/IMG_20240328_181609_800.jpg') ;">  
+      </div>
+    </nav>
+  </header>
+  <!-- BODY SECTION -->
+  <section class="w-full pt-4 px-1.5 md:px-4 mt-[10rem] md:mt-[9rem] md:relative">
+    <div class="w-full h-full flex gap-1">
+      <!-- current image container / MODAL IMAGE-->
+      <div id="current-image"
+        class="fixed hidden opacity-0 pointer-events-none z-50 w-full top-0 h-full left-0 px-2 pt-4 pb-0 md:pb-4 bg-slate-900/30 backdrop-blur-sm transition-all duration-50 ease-in">
+        <!-- Scroll container -->
+        <div id="current-image-container"
+          class="current-image-container w-full md:w-[70vw] mx-auto h-full flex flex-col gap-0.5 bg-slate-50 rounded-md overflow-y-scroll scrollbar-none">
+          <!-- the current image -->
+          <div class="w-full h-[70rem] ">
+            <div class="w-full h-[50rem] flex items-center justify-center bg-contain bg-no-repeat bg-center"
+              style="background-image: url('../../../public/img/post/IMG_20240328_181609_800.jpg') ;">
+              <!-- Image div -->
             </div>
-              <!-- <img src="../../../public/img/post/IMG_20240328_181609_800.jpg" alt=""> -->
-            </div>
-            <!-- the buttons -->
-            <div class="flex gap-2 flex-row md:flex-col md:items-center justify-center">
+          </div>
+          <!-- the buttons -->
+          <div class="flex gap-2 flex-row items-center justify-between md:justify-end px-2">
+            <div class="flex gap-2">
               <button id="likePost" class="">
-                <svg width="2rem" height="2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" 
-                  stroke="#1C274C" stroke-width="1.9200000000000004"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z" 
-                  fill="#ff0000"></path> </g>
-                </svg>  
+                <svg width="2rem" height="2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  stroke="#1C274C" stroke-width="1.9200000000000004">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
+                      fill="#ff0000"></path>
+                  </g>
+                </svg>
               </button>
               <button id="comment" class="">
-                <svg width="2rem" height="2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#1C274C" stroke-width="1.512"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.5997 2.37562 15.1116 3.04346 16.4525C3.22094 16.8088 3.28001 17.2161 3.17712 17.6006L2.58151 19.8267C2.32295 20.793 3.20701 21.677 4.17335 21.4185L6.39939 20.8229C6.78393 20.72 7.19121 20.7791 7.54753 20.9565C8.88837 21.6244 10.4003 22 12 22ZM8 13.25C7.58579 13.25 7.25 13.5858 7.25 14C7.25 14.4142 7.58579 14.75 8 14.75H13.5C13.9142 14.75 14.25 14.4142 14.25 14C14.25 13.5858 13.9142 13.25 13.5 13.25H8ZM7.25 10.5C7.25 10.0858 7.58579 9.75 8 9.75H16C16.4142 9.75 16.75 10.0858 16.75 10.5C16.75 10.9142 16.4142 11.25 16 11.25H8C7.58579 11.25 7.25 10.9142 7.25 10.5Z" 
-                  fill="#ffffff"></path> </g>
+                <svg width="2rem" height="2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  stroke="#1C274C" stroke-width="1.512">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.5997 2.37562 15.1116 3.04346 16.4525C3.22094 16.8088 3.28001 17.2161 3.17712 17.6006L2.58151 19.8267C2.32295 20.793 3.20701 21.677 4.17335 21.4185L6.39939 20.8229C6.78393 20.72 7.19121 20.7791 7.54753 20.9565C8.88837 21.6244 10.4003 22 12 22ZM8 13.25C7.58579 13.25 7.25 13.5858 7.25 14C7.25 14.4142 7.58579 14.75 8 14.75H13.5C13.9142 14.75 14.25 14.4142 14.25 14C14.25 13.5858 13.9142 13.25 13.5 13.25H8ZM7.25 10.5C7.25 10.0858 7.58579 9.75 8 9.75H16C16.4142 9.75 16.75 10.0858 16.75 10.5C16.75 10.9142 16.4142 11.25 16 11.25H8C7.58579 11.25 7.25 10.9142 7.25 10.5Z"
+                      fill="#ffffff"></path>
+                  </g>
                 </svg>
               </button>
+            </div>
+            <div class="flex">
               <button id="downloadPost" class="justify-self-end self-end">
-                <svg width="2rem" height="2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#1C274C" stroke-width="1.176"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12.5535 16.5061C12.4114 16.6615 12.2106 16.75 12 16.75C11.7894 16.75 11.5886 16.6615 11.4465 16.5061L7.44648 12.1311C7.16698 11.8254 7.18822 11.351 7.49392 11.0715C7.79963 10.792 8.27402 10.8132 8.55352 11.1189L11.25 14.0682V3C11.25 2.58579 11.5858 2.25 12 2.25C12.4142 2.25 12.75 2.58579 12.75 3V14.0682L15.4465 11.1189C15.726 10.8132 16.2004 10.792 16.5061 11.0715C16.8118 11.351 16.833 11.8254 16.5535 12.1311L12.5535 16.5061Z" fill="#1C274C"></path> <path d="M3.75 15C3.75 14.5858 3.41422 14.25 3 14.25C2.58579 14.25 2.25 14.5858 2.25 15V15.0549C2.24998 16.4225 2.24996 17.5248 2.36652 18.3918C2.48754 19.2919 2.74643 20.0497 3.34835 20.6516C3.95027 21.2536 4.70814 21.5125 5.60825 21.6335C6.47522 21.75 7.57754 21.75 8.94513 21.75H15.0549C16.4225 21.75 17.5248 21.75 18.3918 21.6335C19.2919 21.5125 20.0497 21.2536 20.6517 20.6516C21.2536 20.0497 21.5125 19.2919 21.6335 18.3918C21.75 17.5248 21.75 16.4225 21.75 15.0549V15C21.75 14.5858 21.4142 14.25 21 14.25C20.5858 14.25 20.25 14.5858 20.25 15C20.25 16.4354 20.2484 17.4365 20.1469 18.1919C20.0482 18.9257 19.8678 19.3142 19.591 19.591C19.3142 19.8678 18.9257 20.0482 18.1919 20.1469C17.4365 20.2484 16.4354 20.25 15 20.25H9C7.56459 20.25 6.56347 20.2484 5.80812 20.1469C5.07435 20.0482 4.68577 19.8678 4.40901 19.591C4.13225 19.3142 3.9518 18.9257 3.85315 18.1919C3.75159 17.4365 3.75 16.4354 3.75 15Z" fill="#1C274C"></path> </g>
+                <svg width="2rem" height="2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  stroke="#1C274C" stroke-width="1.176">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M12.5535 16.5061C12.4114 16.6615 12.2106 16.75 12 16.75C11.7894 16.75 11.5886 16.6615 11.4465 16.5061L7.44648 12.1311C7.16698 11.8254 7.18822 11.351 7.49392 11.0715C7.79963 10.792 8.27402 10.8132 8.55352 11.1189L11.25 14.0682V3C11.25 2.58579 11.5858 2.25 12 2.25C12.4142 2.25 12.75 2.58579 12.75 3V14.0682L15.4465 11.1189C15.726 10.8132 16.2004 10.792 16.5061 11.0715C16.8118 11.351 16.833 11.8254 16.5535 12.1311L12.5535 16.5061Z"
+                      fill="#1C274C"></path>
+                    <path
+                      d="M3.75 15C3.75 14.5858 3.41422 14.25 3 14.25C2.58579 14.25 2.25 14.5858 2.25 15V15.0549C2.24998 16.4225 2.24996 17.5248 2.36652 18.3918C2.48754 19.2919 2.74643 20.0497 3.34835 20.6516C3.95027 21.2536 4.70814 21.5125 5.60825 21.6335C6.47522 21.75 7.57754 21.75 8.94513 21.75H15.0549C16.4225 21.75 17.5248 21.75 18.3918 21.6335C19.2919 21.5125 20.0497 21.2536 20.6517 20.6516C21.2536 20.0497 21.5125 19.2919 21.6335 18.3918C21.75 17.5248 21.75 16.4225 21.75 15.0549V15C21.75 14.5858 21.4142 14.25 21 14.25C20.5858 14.25 20.25 14.5858 20.25 15C20.25 16.4354 20.2484 17.4365 20.1469 18.1919C20.0482 18.9257 19.8678 19.3142 19.591 19.591C19.3142 19.8678 18.9257 20.0482 18.1919 20.1469C17.4365 20.2484 16.4354 20.25 15 20.25H9C7.56459 20.25 6.56347 20.2484 5.80812 20.1469C5.07435 20.0482 4.68577 19.8678 4.40901 19.591C4.13225 19.3142 3.9518 18.9257 3.85315 18.1919C3.75159 17.4365 3.75 16.4354 3.75 15Z"
+                      fill="#1C274C"></path>
+                  </g>
                 </svg>
               </button>
             </div>
           </div>
+
+          <!-- scroll container end -->
         </div>
-        <!-- gallery collective -->
-        <div class="h-[300vh] w-full bg-red-600">ini untuk feed</div>
       </div>
-    </section>
-    <!-- FOOTER (literally 💀) -->
-    <footer class="">
+      <!-- gallery collective -->
+      <div class="w-full flex gap-2 flex-row flex-wrap justify-center">
+        <!-- gallery images -->
+        <div class="w-full h-[30vh] md:w-[22rem] md:h-[15rem] bg-cover bg-no-repeat bg-center rounded-md "
+          style="background-image: url('../../../public/img/post/IMG_20240328_181609_800.jpg');">
+          <div id="gallery-image"
+            class="w-full h-full p-0.5 opacity-0 hover:opacity-100 bg-slate-950/10 transition-all duration-300 ease-out">
+            <!-- for the like buttons -->
+            <button id="likePost" class="">
+              <svg width="2.2rem" height="2.2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                stroke="#ffff" stroke-width="1.9200000000000004">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
+                    fill="#ffffff00">
+                    <!-- change the fill into red (#ff0000) -->
+                  </path>
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <!-- Temporary gallery image start -->
+        <div class="w-full h-[30vh] md:w-[22rem] md:h-[15rem] bg-cover bg-no-repeat bg-center rounded-md "
+          style="background-image: url('../../../public/img/post/IMG_20240328_181609_800.jpg');">
+          <div id="gallery-image"
+            class="w-full h-full p-0.5 opacity-0 hover:opacity-100 bg-slate-950/10 transition-all duration-300 ease-out">
+            <!-- for the like buttons -->
+            <button id="likePost" class="">
+              <svg width="2.2rem" height="2.2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                stroke="#ffff" stroke-width="1.9200000000000004">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
+                    fill="#ffffff00">
+                    <!-- change the fill into red (#ff0000) -->
+                  </path>
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="w-full h-[30vh] md:w-[22rem] md:h-[15rem] bg-cover bg-no-repeat bg-center rounded-md "
+          style="background-image: url('../../../public/img/post/IMG_20240328_181609_800.jpg');">
+          <div id="gallery-image"
+            class="w-full h-full p-0.5 opacity-0 hover:opacity-100 bg-slate-950/10 transition-all duration-300 ease-out">
+            <!-- for the like buttons -->
+            <button id="likePost" class="">
+              <svg width="2.2rem" height="2.2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                stroke="#ffff" stroke-width="1.9200000000000004">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
+                    fill="#ffffff00">
+                    <!-- change the fill into red (#ff0000) -->
+                  </path>
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="w-full h-[30vh] md:w-[22rem] md:h-[15rem] bg-cover bg-no-repeat bg-center rounded-md "
+          style="background-image: url('../../../public/img/post/IMG_20240328_181609_800.jpg');">
+          <div id="gallery-image"
+            class="w-full h-full p-0.5 opacity-0 hover:opacity-100 bg-slate-950/10 transition-all duration-300 ease-out">
+            <!-- for the like buttons -->
+            <button id="likePost" class="">
+              <svg width="2.2rem" height="2.2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                stroke="#ffff" stroke-width="1.9200000000000004">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
+                    fill="#ffffff00">
+                    <!-- change the fill into red (#ff0000) -->
+                  </path>
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <!-- Temporary gallery image start -->
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </section>
+  <!-- FOOTER  -->
+  <!-- loading screen -->
+  <div id="loading-screen"
+    class="w-full h-full fixed top-0 left-0 z-[100] opacity-0 transition-all duration-300 ease-in flex justify-center items-center hidden">
+    <?xml version="1.0" encoding="utf-8"?>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      style="margin: auto; display: block; shape-rendering: auto;" width="203px" height="203px" viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid">
+      <circle cx="50" cy="50" r="32" stroke-width="5" stroke="#11c3f6"
+        stroke-dasharray="50.26548245743669 50.26548245743669" fill="none" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1"
+          values="0 50 50;360 50 50"></animateTransform>
+      </circle>
+      <circle cx="50" cy="50" r="26" stroke-width="5" stroke="#8cfaee"
+        stroke-dasharray="40.840704496667314 40.840704496667314" stroke-dashoffset="40.840704496667314" fill="none"
+        stroke-linecap="round">
+        <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1"
+          values="0 50 50;-360 50 50"></animateTransform>
+      </circle>
+    </svg>
+  </div>
+  <footer class="">
 
-    </footer>
-  </body>
+  </footer>
+</body>
+
 </html>
-
