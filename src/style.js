@@ -1,4 +1,4 @@
-console.log('ada kah?')
+// console.log('ada kah?')
 
 // $(document).off('click', 'btn').on('click', 'btn', function(){
 //     console.log('clicked')
@@ -10,12 +10,18 @@ console.log('ada kah?')
 // });
 
 $('.btn').click(function(){
-    console.log($(this))
-    $(this).addClass('scale-95')
+    // console.log($(this));
+
+    // Add inline style for scale-95
+    $(this).css('transform', 'scale(0.95)');
+
+    // Remove scale-95 and add inline style for scale-105 after a delay
     setTimeout(() => {
-        $(this).removeClass('scale-95').addClass('scale-105')
+        $(this).css('transform', 'scale(1.05)');
     }, 75);
+
+    // Remove scale-105 after another delay
     setTimeout(() => {
-        $(this).removeClass('scale-105')
+        $(this).css('transform', 'scale(1)');
     }, 140);
 })
